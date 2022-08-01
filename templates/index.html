@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Property Manager</title>
+    <link rel="stylesheet" href="static/css/main.css" />
+</head>
+
+<body>
+    <h1>Properties</h1>
+    {% if properties == []: %}
+    <p> There are no properties.</p>
+    {% endif %}
+    <ul>
+        {% for property in properties %}
+        <li>
+            {{property.id}} - {{property.address}} - {{property.tenant_name}} ----
+            <a href="{{ url_for('edit_tenant', id=property.id) }}">Edit Tenant</a> -
+            <a href="{{ url_for('edit_address', id=property.id) }}">Edit Address</a> -
+            <a href="{{ url_for('delete_property', id=property.id) }}">Delete Property</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <strong><a href="{{ url_for('add_property') }}">Add New Property</a></strong>
+</body>
+
+</html>

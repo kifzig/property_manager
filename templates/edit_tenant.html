@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Rating</title>
+    <link rel="stylesheet" href="static/css/main.css" />
+</head>
+
+<body>
+    <form action="{{ url_for('edit_tenant') }}" method="POST">
+        <p>Property: {{property.address}}</p>
+        <p>Current Tenant: {{property.tenant_name}}</p>
+        <input hidden="hidden" name="id" value="{{property.id}}">
+        <input name="tenant_name" type="text" placeholder="New Tenant">
+        <button type="submit">Change Tenant</button>
+    </form>
+</body>
+
+</html>
